@@ -91,6 +91,9 @@ out
 .nuxt
 dist
 
+# Typescript build
+build
+
 # Gatsby files
 .cache/
 # Comment in the public line in if your project uses Gatsby and not Next.js
@@ -127,4 +130,8 @@ dist
 .yarn/unplugged
 .yarn/build-state.yml
 .yarn/install-state.gz
+<<<<<<< HEAD
 .pnp.*
+=======
+.pnp.*
+>>>>>>> 347ea27 (Set up project)
