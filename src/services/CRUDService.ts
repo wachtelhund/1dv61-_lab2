@@ -1,12 +1,13 @@
 import axios from 'axios';
+import { AxiosRequestConfig } from 'axios';
 export class CRUDService<ManyResponse, SingleResponse> {
-    private url: string;
+    url: string;
     constructor(url: string) {
         this.url = url;
     }
 
-    async GetAll(): Promise<ManyResponse> {
-        return axios.get(this.url)
+    async GetAll(params?: AxiosRequestConfig): Promise<ManyResponse> {
+        return axios.get(this.url, params)
             .then(response => {
                 return response.data as unknown as Promise<ManyResponse>;
             })
