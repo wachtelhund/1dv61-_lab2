@@ -1,4 +1,4 @@
-import fetch from 'node-fetch';
+import axios from 'axios';
 export class CRUDService<ManyResponse, SingleResponse> {
     private url: string;
     constructor(url: string) {
@@ -6,25 +6,22 @@ export class CRUDService<ManyResponse, SingleResponse> {
     }
 
     async GetAll(): Promise<ManyResponse> {
-        return fetch(this.url)
+        return axios.get(this.url)
             .then(response => {
-                if (!response.ok) {
-                    throw new Error(response.statusText)
-                }
-                return response.json() as Promise<ManyResponse>;
+                return response.data as unknown as Promise<ManyResponse>;
             })
             .then(data => {
                 return data
             })
+            .catch(error => {
+                throw new Error(error);
+            });
     }
 
     async GetOne(index: string): Promise<SingleResponse> {
-        return fetch(`${this.url}/${index}`)
+        return axios.get(`${this.url}/${index}`)
             .then(response => {
-                if (!response.ok) {
-                    throw new Error(response.statusText)
-                }
-                return response.json() as Promise<SingleResponse>;
+                return response as unknown as Promise<SingleResponse>;
             })
             .then(data => {
                 return data
