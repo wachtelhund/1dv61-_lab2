@@ -4,7 +4,7 @@
         CRUDService <|-- ClassService
         CRUDService <|-- RaceService
 
-        MonsterService<--EncounterCreator
+        MonsterService"1"<--EncounterCreator
 
 
         class CRUDService{
@@ -14,7 +14,7 @@
         }
 
         class EncounterCreator{
-            +getRandomMonsters(challengeRating)
+            +getRandomMonsters(numberOfMonsters, challengeRating)
         }
 
 ```

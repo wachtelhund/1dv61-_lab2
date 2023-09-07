@@ -1,4 +1,3 @@
-import { type } from 'os';
 import { Size } from './Sizes';
 
 export interface MonstersResponse {
@@ -7,9 +6,9 @@ export interface MonstersResponse {
 }
 
 export interface MonsterResponseEntry {
-      index: string;
-      name: string;
-      url: string;
+  index: string;
+  name: string;
+  url: string;
 }
 
 export interface MonsterResponse {
