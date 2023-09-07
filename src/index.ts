@@ -7,4 +7,9 @@ import { EncounterCreator } from './encounters/EncounterCreator';
 
 const creator = new EncounterCreator();
 
-creator.getRandomMonsters(24, 1);
+creator.getRandomMonsters(5).then((monsters) => {
+    monsters.forEach((monster) => {
+        console.log(monster.name);
+        console.log(monster.challenge_rating);
+    });
+});

@@ -3,13 +3,13 @@ import { Size } from './Sizes';
 
 export interface MonstersResponse {
   count: number;
-  results: [
-    {
+  results: MonsterResponseEntry[];
+}
+
+export interface MonsterResponseEntry {
       index: string;
       name: string;
       url: string;
-    },
-  ];
 }
 
 export interface MonsterResponse {
@@ -25,4 +25,5 @@ export interface MonsterResponse {
   image: string;
   size: Size;
   type: string;
+  challenge_rating: number;
 }
