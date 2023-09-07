@@ -1,6 +1,4 @@
-// https://www.dnd5eapi.co/api/classes/
-
-export interface ClassesResponse {
+export interface RacesResponse {
   count: number;
   results: [
     {
@@ -11,8 +9,11 @@ export interface ClassesResponse {
   ];
 }
 
-export interface ClassResponse {
+export interface RaceResponse {
   index: string;
   name: string;
-  hit_die: number;
+  url: string;
+  speed: number;
+  age: string;
+  size: string;
 }

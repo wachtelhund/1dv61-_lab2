@@ -1,16 +1,10 @@
-import { AxiosRequestConfig } from "axios";
-import { ClassesService } from "./services/classes/ClassService";
-import { MonsterService } from "./services/monsters/MonsterService";
+import { AxiosRequestConfig } from 'axios';
+import { ClassesService } from './services/classes/ClassService';
+import { MonsterService } from './services/monsters/MonsterService';
+import { RaceService } from './services/races/RaceService';
+import { log } from 'console';
+import { EncounterCreator } from './encounters/EncounterCreator';
 
-const monsterService = new MonsterService();
+const creator = new EncounterCreator();
 
-const monsters = monsterService.GetAll({params: {challenge_rating: 24}} as AxiosRequestConfig).then(monsters => {
-    console.log(monsters);
-});
-
-const charService = new ClassesService();
-
-const classes = charService.GetAll().then(classes => {
-    console.log(classes);
-});
-
+creator.getRandomMonsters(24, 1);
