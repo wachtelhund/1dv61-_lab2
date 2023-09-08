@@ -15,8 +15,26 @@ const monsters = await encounterCreator.getRandomMonsters(3)
 console.log(monsters)
 ```
 
-### Avialable classes
+### Classes
+> Not all classes are available to use with installed module
+```mermaid
+    classDiagram
+        CRUDService <|-- MonsterService
+        CRUDService <|-- ClassService
+        CRUDService <|-- RaceService
+
+        MonsterService"1"<--EncounterCreator
+
+
+        class CRUDService{
+            +String url
+            +getAll()
+            +getOne()
+        }
+
+        class EncounterCreator{
+            +getRandomMonsters(numberOfMonsters, challengeRating)
+        }
+```
 #### EncounterCreator
 getRandomMonsters(@Optional numberOfMonsters: number, @Optional challengeRating: number). This method fetches all monsters with the desired challenge rating(if any has been specified) and picks one or more random monsters from the retrieved list.
-
-[Class diagram](./ClassDiagram.md)
