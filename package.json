@@ -4,10 +4,17 @@
     "type": "git",
     "url": "https://github.com/wachtelhund/1dv610_lab2.git"
   },
+  "keywords": [
+    "dungeons and dragons",
+    "edward blom",
+    "dnd",
+    "api",
+    "helper"
+  ],
   "files": [
     "build"
   ],
-  "version": "1.2.4",
+  "version": "1.2.6",
   "description": "",
   "main": "build/index.js",
   "scripts": {
@@ -18,9 +25,8 @@
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
     "start": "npm run build && node build/index.js"
   },
-  "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.5.9",
     "@typescript-eslint/eslint-plugin": "^6.6.0",
