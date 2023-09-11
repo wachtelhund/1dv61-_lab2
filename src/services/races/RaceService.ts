@@ -1,4 +1,4 @@
-import { RaceResponse } from '../../types/races/RacesResponse';
+import { RaceResponse } from '../../types/character/races/RacesResponse';
 import { CRUDService } from '../CRUDService';
 export class RaceService extends CRUDService<RaceResponse> {
   constructor() {

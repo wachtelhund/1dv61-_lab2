@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { SpellResponse } from '../../types/spells/SpellsResponse';
 import { CRUDService } from '../CRUDService';
+import { SpellResponse } from '../../types/character/spells/SpellsResponse';
 export class SpellService extends CRUDService<SpellResponse> {
   constructor() {
     super('https://www.dnd5eapi.co/api/spells');

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { AxiosRequestConfig } from 'axios';
 import { Response } from '../types/Response';
-export class CRUDService<SingleResponse> {
+export abstract class CRUDService<SingleResponse> {
   url: string;
   constructor(url: string) {
     this.url = url;
@@ -30,5 +30,16 @@ export class CRUDService<SingleResponse> {
       .then(data => {
         return data;
       });
+  }
+
+  async getRandom(): Promise<SingleResponse> {
+    const response = await this.getAll();
+    const randomIndex = Math.floor(Math.random() * response.count);
+    const random = response.results[randomIndex]?.index;
+    if (random) {
+      return this.getOne(random);
+    } else {
+      throw new Error('No random index found');
+    }
   }
 }
