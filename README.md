@@ -22,19 +22,35 @@ console.log(monsters)
         CRUDService <|-- MonsterService
         CRUDService <|-- ClassService
         CRUDService <|-- RaceService
+        CRUDService <|-- SpellService
 
         MonsterService"1"<--EncounterCreator
+        SpellService"1"<--CharacterCreator
+        RaceService"1"<--CharacterCreator
+        ClassService"1"<--CharacterCreator
 
 
         class CRUDService{
             +String url
             +getAll()
             +getOne()
+            +getRandom()
+        }
+
+        class SpellService{
+            +getClassSpells(classIndex)
         }
 
         class EncounterCreator{
             +getRandomMonsters(numberOfMonsters, challengeRating)
         }
+
+        class CharacterCreator{
+            +getRandomCharacter()
+        }
 ```
 #### EncounterCreator
 getRandomMonsters(@Optional numberOfMonsters: number, @Optional challengeRating: number). This method fetches all monsters with the desired challenge rating(if any has been specified) and picks one or more random monsters from the retrieved list.
+
+#### CharacterCreator
+getRandomCharacter(). This method uses the different services to fetch random classes, races and so on to build a random character. This method is meant to be used as a simple way to quickly create npcs etc.
