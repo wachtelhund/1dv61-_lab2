@@ -28,4 +28,12 @@ export class Character {
     get proficiencies(): ResponseResult[] {
         return this.character.proficiencies;
     }
+
+    get features(): Response {
+        return this.character.features;
+    }
+
+    get subclass(): ResponseResult {
+        return this.character.subclass;
+    }
 }

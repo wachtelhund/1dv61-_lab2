@@ -45,6 +45,8 @@ console.log(monsters)
             +class
             +spells
             +proficiencies
+            +subclass
+            +features
             +getCharacter()
         }
 
