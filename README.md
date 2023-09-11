@@ -28,13 +28,24 @@ console.log(monsters)
         SpellService"1"<--CharacterCreator
         RaceService"1"<--CharacterCreator
         ClassService"1"<--CharacterCreator
+        CharacterCreator-->Character
 
 
         class CRUDService{
+            <<abstract>>
             +String url
             +getAll()
             +getOne()
             +getRandom()
+        }
+
+        class Character{
+            -character
+            +race
+            +class
+            +spells
+            +proficiencies
+            +getCharacter()
         }
 
         class SpellService{
@@ -47,6 +58,8 @@ console.log(monsters)
 
         class CharacterCreator{
             +getRandomCharacter()
+            -getRandomSpells(numberOfSpells)
+            -getRandomFeatures(numberOfFeatures)
         }
 ```
 #### EncounterCreator

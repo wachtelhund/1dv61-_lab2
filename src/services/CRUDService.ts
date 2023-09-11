@@ -21,7 +21,7 @@ export abstract class CRUDService<SingleResponse> {
       });
   }
 
-  async getOne(index: string, url = this.url): Promise<SingleResponse> {
+  async getOne(index: string): Promise<SingleResponse> {
     return axios
       .get(`${this.url}/${index}`)
       .then(response => {
@@ -41,5 +41,16 @@ export abstract class CRUDService<SingleResponse> {
     } else {
       throw new Error('No random index found');
     }
+  }
+
+  async get(url: string): Promise<Response> {
+    return axios
+      .get(url)
+      .then(response => {
+        return response.data as unknown as Promise<Response>;
+      })
+      .then(data => {
+        return data;
+      });
   }
 }
