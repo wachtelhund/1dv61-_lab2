@@ -1,13 +1,6 @@
-import {
-  MonsterResponse,
-  MonstersResponse,
-} from '../../types/monsters/MonstersResponse';
+import { MonsterResponse } from '../../types/monsters/MonstersResponse';
 import { CRUDService } from '../CRUDService';
-// https://www.dnd5eapi.co/api/monsters?challenge_rating=1
-export class MonsterService extends CRUDService<
-  MonstersResponse,
-  MonsterResponse
-> {
+export class MonsterService extends CRUDService<MonsterResponse> {
   constructor() {
     super('https://www.dnd5eapi.co/api/monsters');
   }

@@ -1,16 +1,4 @@
-import { Size } from './Sizes';
-
-export interface MonstersResponse {
-  count: number;
-  results: MonsterResponseEntry[];
-}
-
-export interface MonsterResponseEntry {
-  index: string;
-  name: string;
-  url: string;
-}
-
+import { Size } from './Size';
 export interface MonsterResponse {
   index: string;
   name: string;
@@ -25,4 +13,5 @@ export interface MonsterResponse {
   size: Size;
   type: string;
   challenge_rating: number;
+  url: string;
 }

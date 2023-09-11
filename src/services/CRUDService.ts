@@ -1,16 +1,17 @@
 import axios from 'axios';
 import { AxiosRequestConfig } from 'axios';
-export class CRUDService<ManyResponse, SingleResponse> {
+import { Response } from '../types/Response';
+export class CRUDService<SingleResponse> {
   url: string;
   constructor(url: string) {
     this.url = url;
   }
 
-  async getAll(params?: AxiosRequestConfig): Promise<ManyResponse> {
+  async getAll(params?: AxiosRequestConfig): Promise<Response> {
     return axios
       .get(this.url, params)
       .then(response => {
-        return response.data as unknown as Promise<ManyResponse>;
+        return response.data as unknown as Promise<Response>;
       })
       .then(data => {
         return data;
@@ -20,7 +21,7 @@ export class CRUDService<ManyResponse, SingleResponse> {
       });
   }
 
-  async getOne(index: string): Promise<SingleResponse> {
+  async getOne(index: string, url = this.url): Promise<SingleResponse> {
     return axios
       .get(`${this.url}/${index}`)
       .then(response => {
