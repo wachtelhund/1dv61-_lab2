@@ -10,8 +10,4 @@ export class ClassService extends CRUDService<ClassResponse> {
   async getClassFeatures(classIndex: string): Promise<Response> {
     return this.get('https://www.dnd5eapi.co/api/classes/' + classIndex + '/features');
   }
-
-  async getClassProficiencies(classIndex: string): Promise<Response> {
-    return this.get('https://www.dnd5eapi.co/api/classes/' + classIndex + '/proficiencies');
-  }
 }

@@ -22,14 +22,14 @@ export class CharacterCreator {
         
         const spells = await this.getRandomSpells(classData.index, numberOfSpells);
         const features = await this.getRandomFeatures(classData.index, numberOfFeatures);
-        
-        const proficiencies = await this.classService.getClassProficiencies(classData.index);
+        const randomSubclass = classData.subclasses[Math.floor(Math.random() * classData.subclasses.length)];
         
         const charData = {
             race,
             class: classData,
+            subclass: randomSubclass,
             spells,
-            proficiencies,
+            proficiencies: classData.proficiencies,
             features
         } as CharacterData;
         return new Character(charData);

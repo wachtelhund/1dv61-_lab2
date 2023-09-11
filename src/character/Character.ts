@@ -1,4 +1,4 @@
-import { Response } from "../types/Response";
+import { Response, ResponseResult } from "../types/Response";
 import { CharacterData } from "../types/character/CharacterData";
 import { ClassResponse } from "../types/character/classes/ClassesResponse";
 import { RaceResponse } from "../types/character/races/RaceResponse";
@@ -25,7 +25,7 @@ export class Character {
         return this.character.spells;
     }
 
-    get proficiencies(): Response {
+    get proficiencies(): ResponseResult[] {
         return this.character.proficiencies;
     }
 }
