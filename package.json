@@ -2,7 +2,7 @@
   "name": "dnd_api_helper",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wachtelhund/1dv610_lab2.git"
+    "url": "https://github.com/wachtelhund/dnd_api_helper"
   },
   "keywords": [
     "dungeons and dragons",
@@ -14,7 +14,7 @@
   "files": [
     "build"
   ],
-  "version": "2.4.1",
+  "version": "2.4.2",
   "description": "",
   "main": "build/index.js",
   "scripts": {
