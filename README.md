@@ -88,7 +88,7 @@ getAll(). This method fetches all available entries depending on service type.
 getOne(index). Fetches one specific entry.
 
 ## Testing
-Unittesting is done using Jest.
+Unittesting is done using Jest and is a work in progess.
 ```
 npm test
 ```
