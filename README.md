@@ -4,7 +4,7 @@ npm i dnd_api_helper
 ```
 This module sends several requests to an [dnd5e api](http://www.dnd5eapi.co/docs/#overview).
 The reason this module exists is to provide a simplified interface for developers to interact with chosen parts of the mentioned api. It is not meant to replace the already existing api unless the developer using this module is planning on creating a super simple dnd application.
-### Example usage
+#### Example usage
 ```js
 import { EncounterCreator } from 'dnd_api_helper'
 
@@ -15,7 +15,7 @@ const monsters = await encounterCreator.getRandomMonsters(3)
 console.log(monsters)
 ```
 
-### Classes
+## Classes
 > Not all classes are available to use with installed module
 ```mermaid
     classDiagram
@@ -64,8 +64,25 @@ console.log(monsters)
             -getRandomFeatures(numberOfFeatures)
         }
 ```
-#### EncounterCreator
+### EncounterCreator
 getRandomMonsters(@Optional numberOfMonsters: number, @Optional challengeRating: number). This method fetches all monsters with the desired challenge rating(if any has been specified) and picks one or more random monsters from the retrieved list.
 
-#### CharacterCreator
+### CharacterCreator
 getRandomCharacter(). This method uses the different services to fetch random classes, races and so on to build a random character. This method is meant to be used as a simple way to quickly create npcs etc.
+
+### MonsterService, ClassService, RaceService, SpellService
+All of these classes are wrapper functions to simplify work with the dnd api.
+#### Example usage
+```js
+const monsterService = new MonsterService();
+
+cosnt monsters = await monsterService.getAll()
+
+console.log(monsters)
+
+const specificMonster = await monsterService.getOne(monsters.results[0].index)
+
+console.log(specificMonster)
+```
+getAll(). This method fetches all available entries depending on service type.
+getOne(index). Fetches one specific entry.
