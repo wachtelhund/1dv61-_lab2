@@ -86,3 +86,6 @@ console.log(specificMonster)
 ```
 getAll(). This method fetches all available entries depending on service type.
 getOne(index). Fetches one specific entry.
+
+## NPM
+Information about the current version can be found on [npm](https://www.npmjs.com/package/dnd_api_helper).
