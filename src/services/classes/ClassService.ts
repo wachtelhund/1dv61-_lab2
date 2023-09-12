@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { ClassResponse } from '../../types/character/classes/ClassesResponse';
 import { CRUDService } from '../CRUDService';
 import { Response } from '../../types/Response';
@@ -8,6 +7,8 @@ export class ClassService extends CRUDService<ClassResponse> {
   }
 
   async getClassFeatures(classIndex: string): Promise<Response> {
-    return this.get('https://www.dnd5eapi.co/api/classes/' + classIndex + '/features');
+    return this.get(
+      'https://www.dnd5eapi.co/api/classes/' + classIndex + '/features',
+    );
   }
 }

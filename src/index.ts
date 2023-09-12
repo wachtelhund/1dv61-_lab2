@@ -5,4 +5,11 @@ import { MonsterService } from './services/monsters/MonsterService';
 import { RaceService } from './services/races/RaceService';
 import { SpellService } from './services/spells/SpellService';
 
-export { EncounterCreator, CharacterCreator, MonsterService, ClassService, RaceService, SpellService }
+export {
+  EncounterCreator,
+  CharacterCreator,
+  MonsterService,
+  ClassService,
+  RaceService,
+  SpellService,
+};
