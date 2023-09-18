@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import * as dnd from '../../../src/index'
 import { FormControl, FormGroup } from '@angular/forms';
+import { prettyPrintJson } from 'pretty-print-json';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +23,6 @@ export class AppComponent {
 
   constructor() {
     this.functionForm.valueChanges.subscribe((value) => {
-      console.log(value);
       if (value && value.className !== null && value.className !== undefined) {
         const className = value.className as keyof typeof dnd;
         this.chosenClassMethodNames = this.getFunctionNames(dnd[className]);
@@ -40,17 +40,7 @@ export class AppComponent {
   }
 
   getFunctionNames(classToCheck: any) {
-    console.log('Class to check:', classToCheck);
-    console.log('Class to check prototype:', Object.getOwnPropertyNames(classToCheck.prototype));
-    
-    
-    for (const method of Object.entries(classToCheck)) {
-      console.log('Method:', method);
-      
-    }
-    
     const names = Object.getOwnPropertyNames(classToCheck.prototype)
-    console.log('Names:', names);
     
     if (names) {
       return names.filter(
@@ -63,28 +53,20 @@ export class AppComponent {
   }
 
  async executeFunction() {
-    console.log('Function Form:', this.functionForm.value);
-    
     const className = this.functionForm.get('className')?.value as keyof typeof dnd;
     const functionName = this.functionForm.get('functionName')?.value;
     
     if (className && functionName) {
       const selectedClass = new dnd[className]();
       const selectedFunction = (selectedClass as any)[functionName];
-      
 
-      console.log('Selected Class:', selectedClass);
-      console.log('Selected Function:', selectedFunction);
-
-      
-      
       if (typeof selectedFunction === 'function') {
-
         this.result = await (selectedClass as any)[functionName]();
-        console.log('Function Result:', this.result);
       } else {
-        console.error('Selected function is not a valid function.');
+        this.result = "There was an error executing the function."
       }
+    } else {
+      this.result = "Select a function."
     }
   }
 }

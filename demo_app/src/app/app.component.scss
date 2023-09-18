@@ -3,7 +3,7 @@ mat-card {
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    width: 500px;
+    width: 800px;
 }
 
 .content {
@@ -14,7 +14,20 @@ mat-card {
     margin-top: 50px;
 }
 
+mat-card-content {
+    width: 100%;
+}
+
 form {
     display: flex;
     flex-direction: column;
+    width: 100%;
+}
+
+pre {
+    background-color: #eee;
+    padding: 10px;
+    border-radius: 3px;
+    width: 700px;
+    overflow-x: scroll;
 }

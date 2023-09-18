@@ -7,21 +7,21 @@
       <form [formGroup]="functionForm">
         <mat-form-field>
           <mat-label>Class</mat-label>
-          <mat-select formControlName="className">
+          <mat-select required="true" formControlName="className">
             <mat-option value="{{class}}" *ngFor="let class of exportedClasses">{{class}}</mat-option>
           </mat-select>
         </mat-form-field>
         <mat-form-field>
           <mat-label>Function</mat-label>
-          <mat-select formControlName="functionName">
+          <mat-select required="true" formControlName="functionName">
             <mat-option value="{{function}}" *ngFor="let function of chosenClassMethodNames">{{function}}</mat-option>
           </mat-select>
         </mat-form-field>
         <button mat-raised-button color="primary" (click)="executeFunction()">Execute function!</button>
       </form>
-      <div>
-      <h1>Result</h1>
-      <p>{{result | json}}</p>
+      <div *ngIf="result">
+        <h1>Result</h1>
+        <pre id="result" class="json-container">{{ result | json }}</pre>
       </div>
     </mat-card-content>
   </mat-card>

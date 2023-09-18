@@ -43,6 +43,10 @@ export class CharacterCreator {
     return new Character(charData);
   }
 
+  getUrl() {
+    return this.spellService.url;
+  }
+
   private async getRandomSpells(
     classIndex: string,
     numberOfSpells: number = 4,
