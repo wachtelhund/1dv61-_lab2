@@ -25,7 +25,8 @@
     "dev": "npx nodemon",
     "build": "rimraf ./build && tsc",
     "lint": "./node_modules/.bin/eslint --ignore-path .eslintignore --ext .js,.ts .",
-    "format": "./node_modules/.bin/prettier --ignore-path jest.config.js .gitignore --write \"**/*.+(js|ts|json)\""
+    "format": "./node_modules/.bin/prettier --ignore-path jest.config.js .gitignore --write \"**/*.+(js|ts|json)\"",
+    "demo": "cd demo_app && ng serve && cd .."
   },
   "author": "",
   "license": "MIT",
