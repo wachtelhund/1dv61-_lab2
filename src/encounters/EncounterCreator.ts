@@ -10,6 +10,7 @@ export class EncounterCreator {
     numberOfMonsters: number = 1,
     challengeRating: number | null = null,
   ): Promise<MonsterResponse[]> {
+
     const monsters = await this.monsterService.getAll({
       params: { challenge_rating: challengeRating },
     });

@@ -9,10 +9,11 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class AppComponent {
   title = 'demo_app';
-  exportedClasses = Object.keys(dnd);
+  exportedClasses = this.getClassNames(dnd);
   exportedFunctions!: Function[];
   chosenClassMethodNames: String[] = [];
   dndClasses: DndClass[] = [];
+  result: any;
 
   functionForm = new FormGroup({
     className: new FormControl(''),
@@ -33,11 +34,24 @@ export class AppComponent {
   }
 
   getClassNames(module: any) {
-    return Object.keys(module);
+    return Object.keys(module).filter((key) => {
+      return this.getFunctionNames(module[key]).length > 0;
+    })
   }
 
   getFunctionNames(classToCheck: any) {
+    console.log('Class to check:', classToCheck);
+    console.log('Class to check prototype:', Object.getOwnPropertyNames(classToCheck.prototype));
+    
+    
+    for (const method of Object.entries(classToCheck)) {
+      console.log('Method:', method);
+      
+    }
+    
     const names = Object.getOwnPropertyNames(classToCheck.prototype)
+    console.log('Names:', names);
+    
     if (names) {
       return names.filter(
         (prop) =>
@@ -48,15 +62,15 @@ export class AppComponent {
     return [];
   }
 
- executeFunction() {
+ async executeFunction() {
     console.log('Function Form:', this.functionForm.value);
     
     const className = this.functionForm.get('className')?.value as keyof typeof dnd;
     const functionName = this.functionForm.get('functionName')?.value;
     
     if (className && functionName) {
-      const selectedClass = dnd[className];
-      const selectedFunction = (selectedClass as any).prototype[functionName];
+      const selectedClass = new dnd[className]();
+      const selectedFunction = (selectedClass as any)[functionName];
       
 
       console.log('Selected Class:', selectedClass);
@@ -65,8 +79,9 @@ export class AppComponent {
       
       
       if (typeof selectedFunction === 'function') {
-        const result = selectedFunction();
-        console.log('Function Result:', result);
+
+        this.result = await (selectedClass as any)[functionName]();
+        console.log('Function Result:', this.result);
       } else {
         console.error('Selected function is not a valid function.');
       }
