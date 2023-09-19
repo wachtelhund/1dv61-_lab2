@@ -4,6 +4,16 @@ npm i dnd_api_helper
 ```
 This module sends several requests to an [dnd5e api](http://www.dnd5eapi.co/docs/#overview).
 The reason this module exists is to provide a simplified interface for developers to interact with chosen parts of the mentioned api. It is not meant to replace the already existing api unless the developer using this module is planning on creating a super simple dnd application.
+
+#### Demo application
+The demo application is restricted to people cloning the repo from github to decrease bundle size on npm, it can be launched by
+* Cloning this repo to your local machine
+* Running ```npm install``` followed by ```npm run demo```
+
+The demo application will automatically be updated as new classes are added to the exports of src/index.js
+and is not meant to be used as a source of truth but simply to show what kind of data you can expect from the different function calls.
+
+
 #### Example usage
 ```js
 import { EncounterCreator } from 'dnd_api_helper'
