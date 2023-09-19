@@ -60,6 +60,17 @@ console.log(monsters)
             +getCharacter()
         }
 
+        class Die{
+            -sides
+            -value
+            +Dice(sides)
+            -isValidSides(sides)
+            +roll()
+            +rollMultiple(times)
+            +toString()
+            +toJSON()
+        }
+
         class SpellService{
             +getClassSpells(classIndex)
         }
