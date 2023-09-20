@@ -1,4 +1,4 @@
-export class Dice {
+export class Die {
     private sides: number;
     private value!: number;
     constructor(sides: number = 20) {
@@ -29,6 +29,14 @@ export class Dice {
         }
         this.value = rolls[rolls.length - 1] || this.value;
         return rolls;
+    }
+
+    getSides(): number {
+        return this.sides;
+    }
+
+    getValue(): number {
+        return this.value;
     }
 
     toString(): string {

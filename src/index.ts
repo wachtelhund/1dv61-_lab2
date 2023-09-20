@@ -1,5 +1,5 @@
 import { CharacterCreator } from './character/CharacterCreator';
-import { Dice } from './die/Die';
+import { Die } from './die/Die';
 import { EncounterCreator } from './encounters/EncounterCreator';
 import { ClassService } from './services/classes/ClassService';
 import { MonsterService } from './services/monsters/MonsterService';
@@ -13,5 +13,5 @@ export {
   ClassService,
   RaceService,
   SpellService,
-  Dice,
+  Die as Dice,
 };
