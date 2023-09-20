@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import * as dnd from '../../../src/index'
 import { FormControl, FormGroup } from '@angular/forms';
-import { prettyPrintJson } from 'pretty-print-json';
 
 @Component({
   selector: 'app-root',
@@ -32,13 +31,13 @@ export class AppComponent {
     });
   }
 
-  getClassNames(module: any) {
+  getClassNames(module: any): string[] {
     return Object.keys(module).filter((key) => {
       return this.getFunctionNames(module[key]).length > 0;
     })
   }
 
-  getFunctionNames(classToCheck: any) {
+  getFunctionNames(classToCheck: any): string[] {
     const names = Object.getOwnPropertyNames(classToCheck.prototype)
     
     if (names) {
@@ -51,7 +50,7 @@ export class AppComponent {
     return [];
   }
 
- async executeFunction() {
+ async executeFunction(): Promise<void> {
     const className = this.functionForm.get('className')?.value as keyof typeof dnd;
     const functionName = this.functionForm.get('functionName')?.value;
     
