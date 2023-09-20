@@ -13,7 +13,6 @@ export class AppComponent {
   exportedClasses = this.getClassNames(dnd);
   exportedFunctions!: Function[];
   chosenClassMethodNames: String[] = [];
-  dndClasses: DndClass[] = [];
   result: any;
 
   functionForm = new FormGroup({
@@ -69,16 +68,4 @@ export class AppComponent {
       this.result = "Select a function."
     }
   }
-}
-
-interface DndClass {
-  name: string;
-  methods: DndFunction[];
-}
-
-interface DndFunction {
-  name: string;
-  params: string[];
-  returns: string;
-  fn: Function;
 }
