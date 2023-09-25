@@ -43,7 +43,7 @@ export class CharacterCreator {
     return new Character(charData);
   }
 
-  private async getRandomSpells(
+  async getRandomSpells(
     classIndex: string,
     numberOfSpells: number = 4,
   ): Promise<Response> {
@@ -65,7 +65,7 @@ export class CharacterCreator {
     return randomSpells;
   }
 
-  private async getRandomFeatures(
+  async getRandomFeatures(
     classIndex: string,
     numberOfFeatures: number = 4,
   ): Promise<Response> {

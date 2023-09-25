@@ -10,8 +10,8 @@ export class Die {
         this.roll();
     }
 
-    private isValidAmountSides(sides: number): boolean {
-        return this.sides > 0 && this.sides <= 20;
+    isValidAmountSides(sides: number): boolean {
+        return this.sides > 0;
     }
     
     roll(): number {
