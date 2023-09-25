@@ -15,7 +15,7 @@ export class CharacterCreator {
     this.raceService = new RaceService();
   }
 
-  async getRandomCharacter(
+  async generateRandomizedCharacter(
     numberOfSpells = 4,
     numberOfFeatures = 2,
   ): Promise<Character> {

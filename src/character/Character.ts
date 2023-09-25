@@ -9,7 +9,7 @@ export class Character {
     this.character = character;
   }
 
-  geCharacter(): CharacterData {
+  getCharacter(): CharacterData {
     return this.character;
   }
 

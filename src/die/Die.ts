@@ -2,7 +2,7 @@ export class Die {
     private sides: number;
     private value!: number;
     constructor(sides: number = 20) {
-        if (this.isValidSides(sides)) {
+        if (this.isValidAmountSides(sides)) {
             this.sides = sides;
         } else {
             this.sides = 20;
@@ -10,7 +10,7 @@ export class Die {
         this.roll();
     }
 
-    private isValidSides(sides: number): boolean {
+    private isValidAmountSides(sides: number): boolean {
         return this.sides > 0 && this.sides <= 20;
     }
     
@@ -19,7 +19,7 @@ export class Die {
         return this.value;
     }
 
-    rollMultiple(times: number = 2): number[] {
+    rollMultipleTimes(times: number = 2): number[] {
         if (times < 1 || times > 100) {
             throw new Error('Invalid number of rolls, must be between 1 and 100');
         }
