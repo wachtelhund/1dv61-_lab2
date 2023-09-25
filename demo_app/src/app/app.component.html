@@ -17,9 +17,9 @@
             <mat-option value="{{function}}" *ngFor="let function of chosenClassMethodNames">{{function}}</mat-option>
           </mat-select>
         </mat-form-field>
-        <mat-form-field *ngIf="parameters.length">
+        <mat-form-field *ngIf="parameters.length > 0">
             <mat-label>Paramater: ({{parameters}}) (Seperated by comma)</mat-label>
-            <input required="true" formControlName="params" matInput type="text">
+            <input formControlName="params" matInput type="text">
         </mat-form-field>
         <button mat-raised-button color="primary" (click)="executeFunction()">Execute function!</button>
       </form>
