@@ -23,27 +23,33 @@ export class AppComponent {
 
   constructor() {
     this.functionForm.valueChanges.subscribe((value) => {
-      if (value && value.className !== null && value.className !== undefined) {
-        const className = value.className as keyof typeof dnd;
-        this.chosenClassMethodNames = this.getFunctionNames(dnd[className]);
-      } else {
-        this.chosenClassMethodNames = [];
-        this.functionForm.get('functionName')?.setValue('');
-      }
-      this.parameters = [];
-
-      if (value && value.functionName !== null && value.functionName !== undefined && value.functionName !== '') {
-        const className = value.className as keyof typeof dnd;
-        const functionName = value.functionName as string;
-        
-        const selectedClass = new dnd[className]();
-        const selectedFunction = (selectedClass as any)[functionName];
-        
-        this.parameters = this.getParamaterNames(selectedFunction);
-      } else {
-        this.parameters = [];
-      }
+      this.handleInputChange(value);
     });
+  }
+
+  handleInputChange(value: Partial<{
+    className: string | null;
+    functionName: string | null;
+    params: string | null;
+  }>): void {
+    if (value && value.className !== null && value.className !== undefined) {
+      const className = value.className as keyof typeof dnd;
+      this.chosenClassMethodNames = this.getFunctionNames(dnd[className]);
+    } else {
+      this.chosenClassMethodNames = [];
+      this.functionForm.get('functionName')?.setValue('');
+    }
+    this.parameters = [];
+
+    if (value && value.functionName !== null && value.functionName !== undefined) {
+      const className = value.className as keyof typeof dnd;
+      const functionName = value.functionName as string;
+        
+      const selectedClass = new dnd[className]();
+      const selectedFunction = (selectedClass as any)[functionName];
+        
+      this.parameters = this.getParamaterNames(selectedFunction);
+    }
   }
 
   getClassNames(module: any): string[] {
