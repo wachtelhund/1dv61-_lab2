@@ -12,11 +12,13 @@ export class AppComponent {
   exportedClasses = this.getClassNames(dnd);
   exportedFunctions!: Function[];
   chosenClassMethodNames: String[] = [];
+  parameters: string[] = [];
   result: any;
 
   functionForm = new FormGroup({
     className: new FormControl(''),
     functionName: new FormControl(''),
+    params: new FormControl('')
   });
 
   constructor() {
@@ -28,6 +30,18 @@ export class AppComponent {
         this.chosenClassMethodNames = [];
         this.functionForm.get('functionName')?.setValue('');
       }
+
+      if (value && value.functionName !== null && value.functionName !== undefined && value.functionName !== '') {
+        const className = value.className as keyof typeof dnd;
+        const functionName = value.functionName as string;
+        
+        const selectedClass = new dnd[className]();
+        const selectedFunction = (selectedClass as any)[functionName];
+        this.parameters = this.getParamaterNames(selectedFunction);
+      } else {
+        this.parameters = [];
+      }
+        
     });
   }
 
@@ -50,7 +64,26 @@ export class AppComponent {
     return [];
   }
 
- async executeFunction(): Promise<void> {
+  getParamaterNames(functionToCheck: Function): string[] {
+    const functionAsString = functionToCheck.toString()
+    let params = functionAsString.slice(functionAsString.indexOf("(") + 1, functionAsString.indexOf(")")).split(",")
+    params = params.map((param) => {
+      return param.trim().split(" ")[0]
+    })
+    return params;
+  }
+
+  getFormParams(): string[] {
+    const params = this.functionForm.get('params')?.value as string;
+    if (params) {
+      return params.split(",").map((param) => {
+        return param.trim();
+      });
+    }
+    return [];
+  }
+
+  async executeFunction(): Promise<void> {
     const className = this.functionForm.get('className')?.value as keyof typeof dnd;
     const functionName = this.functionForm.get('functionName')?.value;
     
@@ -59,7 +92,7 @@ export class AppComponent {
       const selectedFunction = (selectedClass as any)[functionName];
 
       if (typeof selectedFunction === 'function') {
-        this.result = await (selectedClass as any)[functionName]();
+        this.result = await (selectedClass as any)[functionName](...this.getFormParams());
       } else {
         this.result = "There was an error executing the function."
       }

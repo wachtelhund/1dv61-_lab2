@@ -8,6 +8,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select'; 
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+
 
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatSelectModule,
     ReactiveFormsModule,
     MatButtonModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
