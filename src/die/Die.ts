@@ -11,7 +11,7 @@ export class Die {
     }
 
     isValidAmountSides(sides: number): boolean {
-        return this.sides > 0;
+        return sides > 0;
     }
     
     roll(): number {
