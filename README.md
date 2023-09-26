@@ -64,9 +64,9 @@ console.log(monsters)
             -sides
             -value
             +Dice(sides)
-            -isValidSides(sides)
+            +isValidSides(sides)
             +roll()
-            +rollMultiple(times)
+            +rollMultipleTimes(times)
             +toString()
             +toJSON()
         }
@@ -81,8 +81,8 @@ console.log(monsters)
 
         class CharacterCreator{
             +getRandomCharacter()
-            -getRandomSpells(numberOfSpells)
-            -getRandomFeatures(numberOfFeatures)
+            +getRandomSpells(numberOfSpells)
+            +getRandomFeatures(numberOfFeatures)
         }
 ```
 ### EncounterCreator
@@ -90,6 +90,9 @@ getRandomMonsters(@Optional numberOfMonsters: number, @Optional challengeRating:
 
 ### CharacterCreator
 getRandomCharacter(). This method uses the different services to fetch random classes, races and so on to build a random character. This method is meant to be used as a simple way to quickly create npcs etc.
+
+### Die
+User to emulate a die
 
 ### MonsterService, ClassService, RaceService, SpellService
 All of these classes are wrapper functions to simplify work with the dnd api.
