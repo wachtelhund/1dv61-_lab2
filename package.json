@@ -26,7 +26,7 @@
     "build": "rimraf ./build && tsc",
     "lint": "./node_modules/.bin/eslint --ignore-path .eslintignore --ext .js,.ts .",
     "format": "./node_modules/.bin/prettier --ignore-path jest.config.js .gitignore --write \"**/*.+(js|ts|json)\"",
-    "demo": "cd demo_app && npm install && ng serve && cd .."
+    "demo": "cd demo_app && npm install && npx ng serve && cd .."
   },
   "author": "",
   "license": "MIT",
