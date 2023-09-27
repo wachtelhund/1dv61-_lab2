@@ -8,3 +8,5 @@ export interface ResponseResult {
   name: string;
   url: string;
 }
+
+// Response? abstract...

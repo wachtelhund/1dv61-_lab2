@@ -24,6 +24,7 @@ const monsters = await encounterCreator.getRandomMonsters(3)
 
 console.log(monsters)
 ```
+<!-- Expected output -->
 
 ## Classes
 > Not all classes are available to use with installed module
