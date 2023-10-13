@@ -20,6 +20,7 @@ export class EncounterCreator {
       const monsterIndex = monsters.results[random]?.index;
       if (monsterIndex) {
         const monster = await this.monsterService.getOne(monsterIndex);
+        monster.image = `https://www.dnd5eapi.co${monster.image}`
         randomMonsters.push(monster);
       }
     }
