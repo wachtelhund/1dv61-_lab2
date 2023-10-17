@@ -7,6 +7,11 @@ export class SpellService extends CRUDService<SpellResponse> {
     super('https://www.dnd5eapi.co/api/spells');
   }
 
+  /**
+   * Gets class spells
+   * @param {string} classIndex - Class index, e.g. 'wizard'
+   * @returns {Promise<Response>} class spells 
+   */
   async getClassSpells(classIndex: string): Promise<Response> {
     return axios
       .get(`https://www.dnd5eapi.co/api/classes/${classIndex}/spells`)

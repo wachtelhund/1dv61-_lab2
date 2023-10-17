@@ -15,6 +15,12 @@ export class CharacterCreator {
     this.raceService = new RaceService();
   }
 
+  /**
+   * Generates randomized character
+   * @param {number} [numberOfSpells] 
+   * @param {number} [numberOfFeatures] 
+   * @returns {Promise<Character>} randomized character 
+   */
   async generateRandomizedCharacter(
     numberOfSpells = 4,
     numberOfFeatures = 2,
@@ -43,6 +49,12 @@ export class CharacterCreator {
     return new Character(charData);
   }
 
+  /**
+   * Gets random spells
+   * @param {string} [classIndex] - Class index, e.g. 'wizard'
+   * @param {number} [numberOfSpells] 
+   * @returns {Promise<Response>} random spells 
+   */
   async getRandomSpells(
     classIndex: string,
     numberOfSpells: number = 4,
@@ -65,6 +77,12 @@ export class CharacterCreator {
     return randomSpells;
   }
 
+  /**
+   * Gets random features
+   * @param {string} [classIndex] - Class index, e.g. 'wizard'
+   * @param {number} [numberOfFeatures] 
+   * @returns {Promise<Response>} random features 
+   */
   async getRandomFeatures(
     classIndex: string,
     numberOfFeatures: number = 4,

@@ -6,6 +6,12 @@ export class EncounterCreator {
 
   constructor() {}
 
+  /**
+   * Gets random monsters
+   * @param {number} [numberOfMonsters] 
+   * @param {number} [challengeRating] 
+   * @returns {MonsterResponse[]} random monsters 
+   */
   async getRandomMonsters(
     numberOfMonsters: number = 1,
     challengeRating: number | null = null,
@@ -20,7 +26,7 @@ export class EncounterCreator {
       const monsterIndex = monsters.results[random]?.index;
       if (monsterIndex) {
         const monster = await this.monsterService.getOne(monsterIndex);
-        monster.image = `https://www.dnd5eapi.co${monster.image}`
+        monster.image = monster.image ? `https://www.dnd5eapi.co${monster.image}` : null;
         randomMonsters.push(monster);
       }
     }

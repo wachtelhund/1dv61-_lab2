@@ -9,7 +9,7 @@ export interface MonsterResponse {
   intelligence: number;
   strength: number;
   wisdom: number;
-  image: string;
+  image: string | null;
   size: Size;
   type: string;
   challenge_rating: number;
