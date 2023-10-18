@@ -20,6 +20,9 @@ export class SpellService extends CRUDService<SpellResponse> {
       })
       .then(data => {
         return data;
+      })
+      .catch(error => {
+        throw new Error(error);
       });
   }
 }

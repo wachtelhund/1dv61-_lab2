@@ -29,6 +29,9 @@ export abstract class CRUDService<SingleResponse> {
       })
       .then(data => {
         return data;
+      })
+      .catch(error => {
+        throw new Error(error);
       });
   }
 
@@ -51,6 +54,9 @@ export abstract class CRUDService<SingleResponse> {
       })
       .then(data => {
         return data;
+      })
+      .catch(error => {
+        throw new Error(error);
       });
   }
 }
